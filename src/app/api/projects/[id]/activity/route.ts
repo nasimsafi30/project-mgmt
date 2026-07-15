@@ -16,7 +16,7 @@ export async function GET(
       .from(tasks)
       .where(eq(tasks.projectId, params.id));
 
-    const taskIds = projectTasks.map(t => t.id);
+    const taskIds = projectTasks.map((t: any) => t.id);
 
     const query = db.select().from(activityLogs).where(
       or(
