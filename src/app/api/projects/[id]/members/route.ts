@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { projects, teamMembers, users, activityLogs } from '@/db/schema';
 import { eq, and } from 'drizzle-orm';
@@ -33,7 +33,7 @@ export async function GET(
       .where(eq(teamMembers.teamId, project.teamId));
 
     return NextResponse.json({
-      data: members.map(m => ({
+      data: members.map((m: any) => ({
         ...m.user,
         role: m.member.role,
         joinedAt: m.member.joinedAt,
