@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { teams, teamMembers, users, activityLogs } from '@/db/schema';
 import { eq, and, count, or, like } from 'drizzle-orm';
@@ -19,7 +19,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
     const members = await query;
 
     return NextResponse.json({
-      data: members.map(m => ({ id: m.user.id, name: m.user.name, email: m.user.email, avatarUrl: m.user.avatarUrl, role: m.member.role, joinedAt: m.member.joinedAt })),
+      data: members.map((m: any) => ({ id: m.user.id, name: m.user.name, email: m.user.email, avatarUrl: m.user.avatarUrl, role: m.member.role, joinedAt: m.member.joinedAt })),
       total: members.length,
     });
   } catch (error) {
