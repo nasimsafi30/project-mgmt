@@ -11,13 +11,14 @@ export async function GET(request: NextRequest) {
     const searchTerm = `%${query}%`;
     const results: any[] = [];
     const taskResults = await db.select().from(tasks).where(or(like(tasks.title, searchTerm), like(tasks.description || '', searchTerm))).limit(5);
-    results.push(...taskResults.map(t => ({ ...t, resultType: 'task' })));
+    results.push(...taskResults.map((t: any) => ({ ...t, resultType: 'task' })));
     const projectResults = await db.select().from(projects).where(or(like(projects.name, searchTerm), like(projects.description || '', searchTerm))).limit(3);
-    results.push(...projectResults.map(p => ({ ...p, resultType: 'project' })));
+    results.push(...projectResults.map((p: any) => ({ ...p, resultType: 'project' })));
     const teamResults = await db.select().from(teams).where(like(teams.name, searchTerm)).limit(3);
-    results.push(...teamResults.map(t => ({ ...t, resultType: 'team' })));
+    results.push(...teamResults.map((t: any) => ({ ...t, resultType: 'team' })));
     return NextResponse.json({ results });
   } catch (error) {
     return NextResponse.json({ error: 'Search failed' }, { status: 500 });
   }
 }
+
