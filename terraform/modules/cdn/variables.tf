@@ -1,0 +1,11 @@
+variable "project_name" { type = string }
+variable "environment" { type = string }
+variable "domain_name" { type = string }
+variable "alb_dns_name" { type = string }
+variable "static_bucket_domain" { type = string }
+variable "static_oac_id" { type = string }
+variable "certificate_arn" { type = string }
+variable "certificate_domain_validation_options" { type = any }
+variable "route53_zone_id" { type = string }
+variable "price_class" { type = string }
+variable "create_dns_records" { type = bool }

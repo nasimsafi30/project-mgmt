@@ -1,0 +1,39 @@
+﻿/* Fix dialog transparency */
+[role="dialog"] {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.dark [role="dialog"] {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #f3f4f6 !important;
+}
+
+[role="dialog"] input,
+[role="dialog"] textarea,
+[role="dialog"] select {
+  background-color: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  color: #111827 !important;
+}
+
+.dark [role="dialog"] input,
+.dark [role="dialog"] textarea,
+.dark [role="dialog"] select {
+  background-color: #374151 !important;
+  border-color: #4b5563 !important;
+  color: #f9fafb !important;
+}
+
+[role="dialog"] label {
+  color: #374151 !important;
+}
+
+.dark [role="dialog"] label {
+  color: #d1d5db !important;
+}
+
+[role="dialog"] button {
+  cursor: pointer;
+}

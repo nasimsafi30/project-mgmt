@@ -1,0 +1,29 @@
+# ProjectHub - Terraform Variables Example
+# Copy this file to terraform.tfvars and fill in your values
+
+environment     = "dev"
+aws_region      = "us-east-1"
+project_name    = "projecthub"
+domain_name     = "example.com"
+
+# Database
+db_username = "projecthub_admin"
+db_password = "your-secure-password-here"
+
+# Application
+container_image = "projecthub/app:latest"
+
+# Alerting
+alert_email = "alerts@example.com"
+
+# Application Secrets
+app_secrets = {
+  DATABASE_URL                    = "postgresql://..."
+  CLERK_SECRET_KEY               = "sk_..."
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = "pk_..."
+  PUSHER_APP_ID                  = "..."
+  PUSHER_SECRET                  = "..."
+  OPENAI_API_KEY                 = "sk-..."
+  STRIPE_SECRET_KEY              = "sk_..."
+  RESEND_API_KEY                 = "re_..."
+}

@@ -1,0 +1,91 @@
+﻿@import './dialog-fix.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { background-color: #ffffff; color: #171717; }
+.dark body { background-color: #030712; color: #f3f4f6; }
+
+.dark .bg-white { background-color: #1f2937 !important; }
+.dark [class*="bg-white"] { background-color: #1f2937 !important; }
+.dark .rounded-xl.border { border-color: #374151 !important; background-color: #111827 !important; }
+.dark input, .dark textarea, .dark select, .dark [role="combobox"] { background-color: #1f2937 !important; border-color: #4b5563 !important; color: #f9fafb !important; }
+.dark input::placeholder, .dark textarea::placeholder { color: #6b7280 !important; }
+.dark label { color: #d1d5db !important; }
+.dark [role="dialog"] { background-color: #111827 !important; border-color: #374151 !important; color: #f3f4f6 !important; }
+.dark [role="listbox"], .dark [data-radix-select-content] { background-color: #1f2937 !important; border-color: #374151 !important; }
+.dark [data-radix-select-item] { color: #e5e7eb !important; }
+.dark [data-radix-select-item]:hover { background-color: #374151 !important; }
+.dark [data-state="active"][role="tab"] { background-color: #374151 !important; color: #ffffff !important; }
+.dark [role="progressbar"] { background-color: #374151 !important; }
+.dark .bg-white.text-gray-600 { background-color: #374151 !important; color: #e5e7eb !important; }
+.dark .bg-gray-50 { background-color: #111827 !important; }
+.dark .bg-gray-100 { background-color: #1f2937 !important; }
+.dark .text-gray-900, .dark .text-gray-800, .dark .text-gray-700 { color: #f3f4f6 !important; }
+.dark .text-gray-600 { color: #d1d5db !important; }
+.dark .text-gray-500 { color: #9ca3af !important; }
+.dark .text-gray-400 { color: #6b7280 !important; }
+.dark .border-gray-200, .dark .border-gray-100, .dark .border-gray-50 { border-color: #374151 !important; }
+.dark .hover\:bg-gray-50:hover { background-color: #1f2937 !important; }
+.dark .hover\:bg-gray-100:hover { background-color: #374151 !important; }
+.dark .bg-blue-50 { background-color: #1e3a5f !important; }
+.dark .bg-amber-50 { background-color: #3d2e00 !important; }
+.dark .bg-purple-50 { background-color: #2d1f4e !important; }
+.dark .bg-green-50 { background-color: #0d3320 !important; }
+.dark .bg-orange-50 { background-color: #3d1f00 !important; }
+.dark .bg-red-50 { background-color: #3d0000 !important; }
+.dark pre, .dark code { background-color: #1f2937 !important; color: #e5e7eb !important; }
+.dark ::-webkit-scrollbar-track { background: #1f2937; }
+.dark ::-webkit-scrollbar-thumb { background: #4b5563; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+/* FIX: Dropdown/Select menus - solid background */
+[data-radix-select-content],
+[data-radix-popper-content-wrapper] {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1) !important;
+}
+
+.dark [data-radix-select-content],
+.dark [data-radix-popper-content-wrapper] {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+[data-radix-select-item] {
+  color: #111827 !important;
+  cursor: pointer !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.25rem !important;
+}
+
+[data-radix-select-item]:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.dark [data-radix-select-item] {
+  color: #f3f4f6 !important;
+}
+
+.dark [data-radix-select-item]:hover {
+  background-color: #374151 !important;
+}
+
+/* Fix popover */
+[data-radix-popper-content-wrapper] [role="dialog"],
+[role="listbox"] {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.dark [data-radix-popper-content-wrapper] [role="dialog"],
+.dark [role="listbox"] {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
