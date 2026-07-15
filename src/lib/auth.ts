@@ -1,27 +1,31 @@
-﻿import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
+﻿// Auth helpers - using custom auth (localStorage based)
 
-export async function getCurrentUser() {
-  const session = await auth();
-  return session?.userId || null;
-}
-
-export async function requireAuth() {
-  const userId = await getCurrentUser();
-  if (!userId) {
-    redirect('/sign-in');
+export function getCurrentUser() {
+  if (typeof window !== 'undefined') {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user) : null;
   }
-  return userId;
+  return null;
 }
 
-export async function isAuthenticated(): Promise<boolean> {
-  const session = await auth();
-  return !!session?.userId;
+export function requireAuth() {
+  const user = getCurrentUser();
+  if (!user) {
+    if (typeof window !== 'undefined') {
+      window.location.href = '/login';
+    }
+    return null;
+  }
+  return user;
+}
+
+export function isAuthenticated(): boolean {
+  return !!getCurrentUser();
 }
 
 export function getUserRole(): string {
-  // Get from session claims or database
-  return 'member';
+  const user = getCurrentUser();
+  return user?.role || 'member';
 }
 
 export function hasPermission(permission: string): boolean {
